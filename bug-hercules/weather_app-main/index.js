@@ -98,8 +98,16 @@ function renderWeatherInfo(weatherInfo) {
     const windspeed = document.querySelector("[data-windspeed]");
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
+    const sunrise = document.querySelector("[data-sunrise]");
+    const sunset = document.querySelector("[data-sunset]");
+    const minTemp = document.querySelector("[data-minTemp]");
+    const maxTemp = document.querySelector("[data-maxTemp]");
+
+
 
     console.log(weatherInfo);
+    console.log(weatherInfo?.sys?.sunrise)
+
 
     //fetch values from weatherINfo object and put it UI elements
     cityName.innerText = weatherInfo?.name;
@@ -110,6 +118,13 @@ function renderWeatherInfo(weatherInfo) {
     windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
     humidity.innerText = `${weatherInfo?.main?.humidity}%`;
     cloudiness.innerText = `${weatherInfo?.clouds?.all}%`;
+    sunrise.innerText = `Sunrise Time: ${weatherInfo?.sys?.sunrise}`;
+    sunset.innerText = `Sunset time: ${weatherInfo?.sys?.sunset}`;
+    minTemp.innerText =  `Min Temp: ${weatherInfo?.main?.temp_max} degrees`;
+    maxTemp.innerText = `Max Temp: ${weatherInfo?.main?.temp_min} degrees`;
+
+
+
 }
 
 function getLocation() {
